@@ -1,0 +1,26 @@
+[
+  {
+    "customerId": "2e699cad-5a2d-44e4-bd4f-2bd67811390d",
+    "firstName": "Professor Sergio",
+    "lastName": "Marquina",
+    "email": "moneyheist@domain.com"
+  },
+  {
+    "customerId": "3eb7f680-5324-4db0-a2dd-f118c1fe3e16",
+    "firstName": "Jon",
+    "lastName": "Snow",
+    "email": "gameofthrones@domain.com"
+  },
+  {
+    "customerId": "659286e4-94d5-452a-bd22-9719d2aa9a97",
+    "firstName": "Walter",
+    "lastName": "White",
+    "email": "breakingbad@domain.com"
+  },
+  {
+    "customerId": "21c48bbe-b592-4cd8-922d-7a10101fe45f",
+    "firstName": "Jonas",
+    "lastName": "Kahnwald",
+    "email": "darktvseries@domain.com"
+  }
+]

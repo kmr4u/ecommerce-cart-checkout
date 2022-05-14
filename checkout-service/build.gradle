@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version "$springBootVersion"
+    id 'io.spring.dependency-management' version "$springDmVersion"
+    id 'jacoco'
+}
+
+group 'com.wayfair'
+version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+application {
+    mainClassName = 'com.wayfair.checkout.CheckoutServiceApplication'
+    applicationDefaultJvmArgs = ['-Duser.timezone=UTC']
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springdoc:springdoc-openapi-ui:1.4.8'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+def excludedJacocoSources = [
+        '**/generated/**',
+        '**/exception/**']
+
+jacoco {
+    toolVersion = "$jacocoVersion"
+    reportsDir = file("build/reports/jacoco")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = false
+        csv.enabled = false
+    }
+    afterEvaluate {
+        classDirectories.setFrom files(classDirectories.files.collect {
+            fileTree dir: it, exclude: excludedJacocoSources
+        })
+    }
+    executionData.setFrom(
+            fileTree(dir: "$buildDir", includes: [
+                    "/jacoco/test.exec",
+                    "/jacoco/integTest.exec"
+            ])
+    )
+}
