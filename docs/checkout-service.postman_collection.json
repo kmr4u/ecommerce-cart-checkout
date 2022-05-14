@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "849fae7c-6c24-4dfd-9397-7fc5fc062274",
+		"name": "checkout-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Item to Basket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "customerId",
+						"value": "2e699cad-5a2d-44e4-bd4f-2bd67811390d",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productId\": \"WF012345\",\n    \"quantity\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/basket/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"basket",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Items in Basket",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"type": "text",
+						"value": "2e699cad-5a2d-44e4-bd4f-2bd67811390d"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/basket/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"basket",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Items in Basket Price",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "customerId",
+						"type": "text",
+						"value": "2e699cad-5a2d-44e4-bd4f-2bd67811390d"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/basket/items/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"basket",
+						"items",
+						"total"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

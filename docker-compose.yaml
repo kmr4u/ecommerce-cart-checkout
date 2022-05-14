@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+
+  products:
+    image: wayfair-interviewing/products-service
+    container_name: products-service
+    build:
+      context: products-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+
+  payments:
+    image: wayfair-interviewing/payments-service
+    container_name: payments-service
+    build:
+      context: payments-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+
+  checkout:
+    image: wayfair-interviewing/checkout-service
+    container_name: checkout-service
+    build:
+      context: checkout-service
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
